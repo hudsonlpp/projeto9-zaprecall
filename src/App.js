@@ -1,21 +1,30 @@
-import Flashcards from "./components/Flashcards";
+import { useState } from 'react';
 import Deck from "./components/Deck";
-import logo from "./assets/img/logo.png";
+import { Body } from "./App.styles";
+import Header from "./components/header/Header"
+import Footer from "./components/footer/Footer"
 
 export default function App() {
+  const [contagem, setContagem] = useState(0)
 
+  const cards = [
+    { question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
+    { question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
+    { question: "Componentes devem iniciar com __", answer: "Letra maiúscula" },
+    { question: "Podemos colocar __ dentro do JSX", answer: "expressões" },
+    { question: "O ReactDOM nos ajuda __", answer: "Interagindo com a DOM para colocar componentes React na mesma" },
+    { question: "Usamos o npm para __", answer: "Gerenciar os pacotes necessários e suas dependências" },
+    { question: "Usamos props para __", answer: "Passar diferentes informações para componentes" },
+    { question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
+  ]
+  
 
   return (
-    <div className="screen-container">
-      <div className="logo-container">
-        <img src={logo} alt="logo"/>
-        <h1>ZapRecall</h1>
-      </div>
-      <Flashcards/>
-      <Flashcards/>
-      <Flashcards/>
-      <Flashcards/>
-      <div className="footer-concluidos">0/4 CONCLUÍDOS</div>
-    </div>
-  );
+    <Body>
+      <Header />
+      <Deck cards={cards} setContagem={setContagem} />
+      <Footer contagem={contagem} cardsLength={cards.length} />
+    </Body>
+);
 }
+

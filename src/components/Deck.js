@@ -1,18 +1,10 @@
-export default function Deck(){
-    return(
-        <div className="pergunta-aberta">
-            {cards.map(pergunta => <button></button>)}
-        </div>
-    )
-}
+import FlashCard from "./flashcards/Flashcards"
 
-const cards = [
-	{ question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
-	{ question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
-	{ question: "Componentes devem iniciar com __", answer: "Letra maiúscula" },
-	{ question: "Podemos colocar __ dentro do JSX", answer: "expressões" },
-	{ question: "O ReactDOM nos ajuda __", answer: "Interagindo com a DOM para colocar componentes React na mesma" },
-	{ question: "Usamos o npm para __", answer: "Gerenciar os pacotes necessários e suas dependências" },
-	{ question: "Usamos props para __", answer: "Passar diferentes informações para componentes" },
-	{ question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
-]
+export default function Deck(props) {
+  return (
+    <>
+      {props.cards.map((card, indice) => {
+        return (<FlashCard key={indice} indice={indice} card={card} setContagem={props.setContagem} />)})}
+    </>
+  )
+}
