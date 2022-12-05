@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import seta_play from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/seta_play.png"
-import seta_virar from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/seta_virar.png"
-import icone_certo from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/icone_certo.png"
-import icone_erro from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/icone_erro.png"
-import icone_quase from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/icone_quase.png"
+import seta_play from "../assets/img/seta_play.png"
+import seta_virar from "../assets/img/seta_virar.png"
+import icone_certo from "../assets/img/icone_certo.png"
+import icone_erro from "../assets/img/icone_erro.png"
+import icone_quase from "../assets/img/icone_quase.png"
 
 
 export default function FlashCard(props){
@@ -107,7 +107,7 @@ export const Container = styled.div`
   &.pergunta-aberta {
     width: 300px;
     margin: 12px;
-    padding-left: 15px;
+    padding: 15px;
     height: 160px;
     background: #FFFFD5;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
