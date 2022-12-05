@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container } from "./Flashcards.styles";
+import styled from "styled-components";
 import seta_play from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/seta_play.png"
 import seta_virar from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/seta_virar.png"
 import icone_certo from "/home/hudson/Documents/DRIVEN/projeto9-zaprecall/src/assets/img/icone_certo.png"
@@ -29,7 +29,7 @@ export default function FlashCard(props){
       }
       return (
         <Container className={`finished ${statusCard}`}>
-          <p>Pergunta {props.index + 1}</p>
+          <p>Pergunta {props.indice + 1}</p>
           {icon}
         </Container>
       );
@@ -37,9 +37,9 @@ export default function FlashCard(props){
     
     if (cardVirado) {
         return (
-          <Container className="open back">
+          <Container className="pergunta-aberta">
             <p>{props.card.answer}</p>
-            <div className="buttons">
+            <div className="container-botoes">
               <button className="VERMELHO" onClick={() => {Finalizar('VERMELHO')}}>Não lembrei</button>
               <button className="AMARELO" onClick={() => {Finalizar('AMARELO')}}>Quase não lembrei</button>
               <button className="VERDE" onClick={() => {Finalizar('VERDE')}}>Zap!</button>
@@ -50,7 +50,7 @@ export default function FlashCard(props){
 
       if (perguntaAberta) {
         return (
-          <Container className="open">
+          <Container className="pergunta-aberta">
             <p>{props.card.question}</p>
             <img
               src={seta_virar}
@@ -62,7 +62,7 @@ export default function FlashCard(props){
       }
       return (
         <Container>
-          <p>Pergunta {props.index + 1}</p>
+          <p>Pergunta {props.indice + 1}</p>
           <img src={seta_play} alt="seta_play" onClick={() => setPerguntaAberta(true)} />
         </Container>
       );
@@ -76,3 +76,113 @@ export default function FlashCard(props){
         <>{Renderizar()}</>
         );
 }
+
+
+export const corBotao = {  VERDE : "#2FBE34",  AMARELO : "#FF922E",  VERMELHO : "#FF3030",CINZA : "#333333" };
+
+export const Container = styled.div`
+
+    position: relative;
+    width: 300px;
+    height: 35px;
+    background-color: #FFFFFF;
+    margin: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+  
+  > p {
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333333;
+  }
+  
+  &.pergunta-aberta {
+    width: 300px;
+    margin: 12px;
+    padding: 15px;
+    min-height: 100px;
+    background: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  > img{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .container-botoes{
+
+    display: flex;
+  
+    > button {
+    margin: 5px;
+    width: 90px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  }
+
+  .VERMELHO {
+    border: ${corBotao.VERMELHO};
+    background: ${corBotao.VERMELHO}; 
+  }
+  &.VERMELHO{
+    >p{
+      color:${corBotao.VERMELHO};
+      text-decoration-line: line-through;
+    }
+  }
+
+  .AMARELO {
+    border: ${corBotao.AMARELO};
+    background: ${corBotao.AMARELO};
+  }
+  &.AMARELO{
+    >p{
+      color:${corBotao.AMARELO};
+      text-decoration-line: line-through;
+    }
+  }
+  .VERDE {
+    border: ${corBotao.VERDE};
+    background: ${corBotao.VERDE};
+  }
+  &.VERDE{
+    >p{
+      color:${corBotao.VERDE};
+      text-decoration-line: line-through;
+    }
+  }
+
+`;
+
+  

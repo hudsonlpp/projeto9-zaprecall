@@ -1,4 +1,4 @@
-import FlashCard from "./flashcards/Flashcards"
+import FlashCard from "./Flashcards"
 
 export default function Deck(props) {
   return (

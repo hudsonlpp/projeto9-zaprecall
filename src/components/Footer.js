@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+
+export default function Footer(props) {
+  return (
+    <Container>
+            <div className="footer-concluidos"> {props.contagem}/{props.cardsLength} CONCLUÍDOS</div>
+    </Container>
+  )
+}
+
 export const Container = styled.footer`
         width: 100%;
         min-height: 50px;

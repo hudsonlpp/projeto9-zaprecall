@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Deck from "./components/Deck";
-import { Body } from "./App.styles";
-import Header from "./components/header/Header"
-import Footer from "./components/footer/Footer"
+import styled from "styled-components";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 export default function App() {
   const [contagem, setContagem] = useState(0)
@@ -28,3 +28,14 @@ export default function App() {
 );
 }
 
+export const Body = styled.div`
+  background-color: #fb6b6b;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 200px;
+`;
