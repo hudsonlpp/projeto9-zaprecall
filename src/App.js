@@ -3,6 +3,7 @@ import Deck from "./components/Deck";
 import styled from "styled-components";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import GlobalStyle from "./components/styles/globalStyle"
 
 export default function App() {
   const [contagem, setContagem] = useState(0)

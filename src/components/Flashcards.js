@@ -107,34 +107,45 @@ export const Container = styled.div`
   &.pergunta-aberta {
     width: 300px;
     margin: 12px;
-    padding: 15px;
-    min-height: 100px;
+    padding-left: 15px;
+    height: 160px;
     background: #FFFFD5;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
     color: #333333;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
+    align-items: center;
+
   
+  >p{
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   > img{
     position: absolute;
     bottom: 20px;
     right: 20px;
+    height: 15px;
   }
 
+  }
+  
   .container-botoes{
 
     display: flex;
   
     > button {
+    width: 85.17px;
+    height: 37.17px;
+    border-radius: 5px;
     margin: 5px;
     width: 90px;
     font-family: 'Recursive';

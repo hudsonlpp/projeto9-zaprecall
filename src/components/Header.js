@@ -22,6 +22,7 @@ img {
 }
 
 h1 {
+  width: 203.17px;
   font-family: 'Righteous';
   font-style: normal;
   font-weight: 400;
