@@ -18,18 +18,18 @@ export default function FlashCard(props){
       let icon = null;
       switch (statusCard) {
         case "VERDE":
-          icon = (<img src={icone_certo} alt="icone_certo" />);
+          icon = (<img data-test="zap-icon" src={icone_certo} alt="icone_certo" />);
           break;
         case "AMARELO":
-          icon = (<img src={icone_quase} alt="icone_erro" />);
+          icon = (<img data-test="partial-icon" src={icone_quase} alt="icone_erro" />);
           break;
         default:
-          icon = (<img src={icone_erro} alt="icone_quase" />);
+          icon = (<img data-test="no-icon" src={icone_erro} alt="icone_quase" />);
           break;
       }
       return (
-        <Container className={`finished ${statusCard}`}>
-          <p>Pergunta {props.indice + 1}</p>
+        <Container className={`${statusCard}`}>
+          <p data-test="flashcard-text">Pergunta {props.indice + 1}</p>
           {icon}
         </Container>
       );
@@ -38,11 +38,11 @@ export default function FlashCard(props){
     if (cardVirado) {
         return (
           <Container className="pergunta-aberta">
-            <p>{props.card.answer}</p>
+            <p data-test="flashcard-text" >{props.card.answer}</p>
             <div className="container-botoes">
-              <button className="VERMELHO" onClick={() => {Finalizar('VERMELHO')}}>Não lembrei</button>
-              <button className="AMARELO" onClick={() => {Finalizar('AMARELO')}}>Quase não lembrei</button>
-              <button className="VERDE" onClick={() => {Finalizar('VERDE')}}>Zap!</button>
+              <button data-test="no-btn" className="VERMELHO" onClick={() => {Finalizar('VERMELHO')}}>Não lembrei</button>
+              <button data-test="partial-btn" className="AMARELO" onClick={() => {Finalizar('AMARELO')}}>Quase não lembrei</button>
+              <button data-test="zap-btn" className="VERDE" onClick={() => {Finalizar('VERDE')}}>Zap!</button>
             </div>
           </Container>
         );
@@ -51,19 +51,15 @@ export default function FlashCard(props){
       if (perguntaAberta) {
         return (
           <Container className="pergunta-aberta">
-            <p>{props.card.question}</p>
-            <img
-              src={seta_virar}
-              alt="seta_virar"
-              onClick={() => setCardVirado(true)}
-            />
+            <p data-test="flashcard-text" >{props.card.question}</p>
+            <img  data-test="turn-btn" src={seta_virar} alt="seta_virar" onClick={() => setCardVirado(true)}/>
           </Container>
         );
       }
       return (
         <Container>
-          <p>Pergunta {props.indice + 1}</p>
-          <img src={seta_play} alt="seta_play" onClick={() => setPerguntaAberta(true)} />
+          <p data-test="flashcard-text" >Pergunta {props.indice + 1}</p>
+          <img data-test="play-btn" src={seta_play} alt="seta_play" onClick={() => setPerguntaAberta(true)} />
         </Container>
       );
     }
@@ -73,10 +69,9 @@ export default function FlashCard(props){
         setConcluido(true);
       }
       return (
-        <>{Renderizar()}</>
+        <div data-test="flashcard">{Renderizar()}</div>
         );
 }
-
 
 export const corBotao = {  VERDE : "#2FBE34",  AMARELO : "#FF922E",  VERMELHO : "#FF3030",CINZA : "#333333" };
 

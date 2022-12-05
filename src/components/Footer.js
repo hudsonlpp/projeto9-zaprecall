@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Footer(props) {
   return (
     <Container>
-            <div className="footer-concluidos"> {props.contagem}/{props.cardsLength} CONCLUÍDOS</div>
+            <div data-test="footer" className="footer-concluidos"> {props.contagem}/{props.cardsLength} CONCLUÍDOS</div>
     </Container>
   )
 }
